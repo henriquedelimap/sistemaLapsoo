@@ -13,7 +13,7 @@ interface Prop{
     openModal?: boolean
 }
 
-export function ModalApp(prop: Prop) {
+export function ModalApp(prop: Prop) {   
     const {opened, handleClose, openModal, setOpened} = prop
     return(
         <>

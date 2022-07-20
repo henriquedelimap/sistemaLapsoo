@@ -24,7 +24,7 @@ export function Banner(prop: Prop){
        const {text} = prop 
     return(
         <motion.div whileHover={{scale: 1}} className={styles.banner}>
-            {text}
+            {text} heki gek
             <div className={styles.banner__circleMotion}> 
                 <motion.span 
                     className={styles.banner__transitionLeft}
