@@ -1,0 +1,62 @@
+
+@import '@/styles/variaveis.scss';
+
+.menuRight{
+    grid-area: menuRight;
+    
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &__header{
+        display: flex;
+        justify-content: center;
+        
+        padding: $BTN_padding;
+        &__border{
+            margin: $marginVertical;
+            width: 8rem;
+            height: 8rem;
+            border-radius: $BTN_borderRadiusCircle;
+            border: $BTN_border;
+            box-shadow: $shadowDafault;
+            border: 3px solid $cinza;
+            animation: borderRotate 4s ease-in both;
+            &__img{
+                border-radius: $BTN_borderRadiusCircle;
+                width: 97%;
+                height: 97%;
+                border: 1px solid $branco;
+            }
+        }
+        @keyframes borderRotate {
+            0%{
+                border: 3px solid $status_verde1;
+                transform: rotate(0deg);
+            }
+            15%{
+                border-bottom: 3px solid $status_verde2;
+            }
+            35%{
+                border-left: 3px solid $status_verde3;
+            }
+            55%{
+                border-top: 3px solid $status_verde3;
+            }
+            75%{
+                transform: rotate(380deg);
+                border-right: 3px solid $status_verde2;
+
+            }
+            100%{
+                border: 3px solid $status_verde1;
+                transform: rotate(0deg);
+
+            }
+        }
+    }
+
+    &__footer{
+
+    }
+}

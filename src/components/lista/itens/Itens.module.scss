@@ -1,0 +1,37 @@
+@import '@/styles/variaveis.scss';
+.itens{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 3.2rem 1.6rem;
+    position: relative;
+    &__item{
+        height: 16rem;
+        width: 16rem;
+        border-radius: .8rem;
+        box-shadow: 0px 0px .4rem $cinzaShadow;
+    
+    }
+    &__add{
+        cursor: pointer;
+        height: 16rem;
+        width: 8rem;
+        border-radius: .8rem;
+        box-shadow: 0px 0px .4rem $cinzaShadow;
+        display: flex;
+        align-items: center;
+        margin: 0 1.6rem;
+        position: relative;
+        &__icone{
+            border-radius: 50rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin:  auto;
+            box-shadow: 0px 0px .1rem $cinza;
+            font-size: 1.6rem;
+            padding: .4rem;
+        }
+
+    }
+}

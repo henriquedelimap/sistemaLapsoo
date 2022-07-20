@@ -1,0 +1,111 @@
+@import '@/styles/variaveis.scss';
+.login{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 0px groove rgb(0, 0, 0);
+    padding-bottom: 32px;
+    &__fieldset{
+        border: none;
+        height: 20rem;
+        padding: 8px;
+
+        border-radius: 0% 0% 25% 25%;
+        background: #ffffff55;
+        &__form{
+            display: flex;
+            flex-direction: column;
+            
+            height: 90%;
+            justify-content: space-around;
+            align-items: center;
+            &__div{
+                display: flex;
+                flex-direction: column;
+                height: 80px;
+                &__input{
+                    border: none;
+                    height: 100%;
+                    width: 32vw;
+                    position: relative;
+                    // background-color: transparent;
+                    outline: none;
+                    padding-top: 18px;
+                    padding-left: 4px;
+                    font-weight: 300;
+                    font-size: 16px;
+                }
+                
+                &__label{
+                    height: 8rem;
+                    width: 100%;
+                    position: relative;
+                    top: -100%;
+                    transform: translateY(100%);
+
+                    padding: 12px;
+                    transition: all .4s ease;
+
+                    overflow: hidden;
+                    &::after{
+                        content: ' ';
+                        height: 100%;
+                        width: 100%;
+                        position: absolute;
+                        top: -1px;
+                        left: -1px;
+                        border-bottom: 1px solid $azul-text;
+                        transform: translateX(-100%);
+                        transition: all .4s ease;
+                    }
+                    &::before{
+                        content: ' ';
+                        height: 100%;
+                        width: 100%;
+                        position: absolute;
+                        top: -1px;
+                        left: -1px;
+                        border-bottom: 1px solid $cinza;
+                        transform: translateX(0%);
+                        transition: all .4s ease;
+                    }
+                    span{
+                        position: absolute;
+                        transform: translateY(-50%)  scale(1);
+                        transition: all .4s ease;
+                        padding-top: 10px;
+                        top: 50%;
+                        user-select: none;
+                        font-weight: 200;
+                    }
+    
+                }
+            }
+            &__submit{
+                font-size: 1rem;
+                padding: .4rem 1.6rem;
+                border-radius: .8rem;
+                border: 1px solid $azul-text;
+                background-color: $azul-text;
+                // color: $branco;
+                font-weight: 500;
+            }
+        }   
+    }
+}
+
+
+
+.login__fieldset__form__div__input:focus + .login__fieldset__form__div__label span, .login__fieldset__form__div__input:not(:placeholder-shown) + .login__fieldset__form__div__label span{
+}
+.login__fieldset__form__div__input:focus +  .login__fieldset__form__div__label::after,
+.login__fieldset__form__div__input:not(:placeholder-shown) +  .login__fieldset__form__div__label::after{
+    transform: translateX(0%) ;
+}
+
+.login__fieldset__form__div__input:focus +  .login__fieldset__form__div__label span,
+.login__fieldset__form__div__input:not(:placeholder-shown)  +   .login__fieldset__form__div__label span{
+    transform: translateY(-116%);
+}

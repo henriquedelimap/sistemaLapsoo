@@ -1,0 +1,12 @@
+@import '@/styles/variaveis.scss';
+.home{
+    // border: $BTN_border;
+    box-shadow: inset 0px 0px .4rem $cinza;
+    &__banner{
+        // box-shadow: -.4rem 0px .4rem $cinza;
+        border-bottom: $BTN_border;
+        padding: $BTN_padding;
+        // background-color: $branco;
+        // color: $branco;
+    }
+}

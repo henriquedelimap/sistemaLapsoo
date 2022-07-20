@@ -1,0 +1,63 @@
+@import '@/styles/variaveis.scss';
+
+.close{
+    display: none;
+}
+.active{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    animation: blur .01s linear both;
+    // background-color: red;
+    top: 0%;
+    left: 0%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__modal{
+        position: fixed;
+        width: 80vw;
+        height: 80vh;
+        
+        border-radius: .8rem;
+        box-shadow: 0px 0px .4rem $cinzaShadow;
+        // background-color: $branco;
+        animation: modal .200s linear both;
+        padding: 1.6rem;
+        &__container{
+            border-radius: .8rem;
+            width: 100%;
+            height: 100%;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(8, 1fr);
+            position: relative;
+            &__iconeClose{
+                cursor: pointer;
+                position: absolute;
+                right: 0;
+                top: 0;
+                font-size: 1.6rem;
+            }
+        }
+    }
+    @keyframes blur{
+        0%{
+            backdrop-filter: blur(0rem) brightness(100%);
+        }
+        50%{
+            backdrop-filter:  brightness(96%);
+        }
+        100%{
+            backdrop-filter: brightness(50%);
+        }
+    }
+    @keyframes modal{
+        0%{
+            opacity: .9;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+}

@@ -1,0 +1,89 @@
+@import '@/styles/variaveis.scss';
+.status{
+    width: 1rem;
+    height: 1rem;
+    border-radius: $BTN_borderRadiusCircle;
+    // background-color: red;
+    position: relative;
+    margin-bottom: -.08rem;
+    &__first{
+        position: absolute;
+        width: .5rem;
+        height: .5rem;
+        left: 50%;
+        top: 50%;
+        border-radius: $BTN_borderRadiusCircle;
+        animation: pulso .6s ease-out infinite alternate;
+    } 
+    
+    @keyframes pulso {
+        0%{
+            background-color: $status_verde1; 
+            transform: translate(-45%, -50%) scale(.4);
+        }
+        25%{
+            background-color: $status_verde1; 
+            transform: translate(-50%, -50%) scale(.7);
+        }
+        50%{
+            background-color: $status_verde1; 
+            transform: translate(-50%, -50%) scale(.8);
+        }
+        100%{
+            transform: translate(-50%, -50%) scale(.9);
+            // box-shadow: 0px 0px 0rem .2rem green;
+            background-color: $status_verde1; 
+        }
+        
+    }
+    &__second{
+        position: absolute;
+        width: 1rem;
+        height: 1rem;
+        left: 50%;
+        top: 50%;
+        // background-color: yellow; 
+        border-radius: $BTN_borderRadiusCircle;
+        animation: pulsoShadow 1.2s ease-in infinite;
+
+    }  
+    @keyframes pulsoShadow {
+        0%{
+            transform: translate(-50%, -50%) scale(.1);
+            background-color: $status_verde2;
+        }
+        25%{
+
+            transform: translate(-50%, -50%) scale(.4);
+            background-color: $status_verde2;
+
+        }
+        50%{
+            transform: translate(-50%, -50%) scale(.5);
+            background-color: $status_verde2;
+            
+        }
+        75%{
+            transform: translate(-50%, -50%) scale(.8);
+            border: 1px solid $status_verde3;
+            background-color: $status_verde2;
+            
+        }
+        85%{
+            transform: translate(-50%, -50%) scale(1);
+            border: 1px solid $status_verde3;
+            background-color: $status_verde3;
+
+        }
+        95%{
+            border: 1px solid $status_verde2;
+        }
+        100%{
+            transform: translate(-50%, -50%) scale(1.1);
+            border: 1px solid transparent;
+            background-color: none;
+        
+        }
+        
+    }
+}

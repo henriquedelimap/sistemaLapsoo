@@ -1,0 +1,98 @@
+
+@import '@/styles/variaveis.scss';
+.wallet{
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: $BTN_borderRadius;
+    border: $BTN_border;
+    padding: $BTN_padding;
+    margin: $BTN_margin;
+    position: relative;
+    overflow: hidden;
+    height: $BTN_height;
+    
+    &__img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: .4rem;
+        position: relative;
+        z-index: 10;
+    }   
+    &__value{
+        align-items: center;
+        // color: $preto;
+        position: relative;
+        z-index: 100;
+        white-space: nowrap;
+    }
+    &::after{
+        content: '';
+        height: 120%;
+        width: 150%;
+        background-color: $azul-text;
+        position: absolute;
+        left: -150%;
+    }
+    &:hover &__value{
+        font-weight: 400;
+        animation: cor $animationDefault;
+    }
+     &:hover::after{
+        animation: hover $animationDefault;
+    }
+    &__ativa{
+        filter: brightness(1.2);
+        &::after{
+            animation: ativo 6s ease infinite alternate-reverse;
+            filter: brightness(1);
+            transform: translateX(100%) skewX(0deg); 
+        }
+        &__value{
+            font-weight: 500;
+            color: $branco;
+            
+        }
+    }
+    
+    @keyframes hover {
+        0%{
+            filter: brightness(1.1);
+
+            transform: translateX(0%) skewX(65deg);
+        }
+        75%{
+            filter: brightness(1.2);
+        }
+        100%{
+            filter: brightness(1);
+            transform: translateX(100%) skewX(0deg);
+        }
+    }
+    @keyframes cor {
+        0%{
+            // color: $preto;
+
+        }
+        100%{
+            color: $branco;
+
+        }
+    }
+
+    @keyframes ativo {
+        0%{
+            filter: brightness(1.1);
+        }
+        50%{
+            filter: brightness(1);
+        }
+        100%{
+            filter: brightness(1.2);
+        } 
+    }
+
+
+}

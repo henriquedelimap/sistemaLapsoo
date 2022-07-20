@@ -1,0 +1,22 @@
+@import '@/styles/variaveis.scss';
+.banner{
+    width: 100%;
+    height: 8rem;
+    // background-color: $logo;
+    border-radius: $BTN_borderRadius;
+    // color: $logo;
+    padding: $BTN_padding;
+    margin: $marginVertical;
+    overflow: hidden;
+
+    // position: relative;
+    &__transitionLeft{
+        // position: absolute;
+        // top: 0;
+        // left: -60%;
+        // transform: skewX(45deg);
+        // height: 100%;
+        // width: 50%;
+        // background-color: $cinza;
+    }
+}

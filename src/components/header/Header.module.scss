@@ -1,0 +1,9 @@
+@import '@/styles/variaveis.scss';
+
+.header{
+    // padding: $BTN_padding;
+    // grid-area: header;
+    &:nth-child(0){
+        background-color: blue;
+    }
+}
