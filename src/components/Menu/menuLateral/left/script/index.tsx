@@ -1,7 +1,7 @@
 // import { MdSettings, MdManageSearch, MdDashboardCustomize, MdContacts } from 'react-icons/md'
 import {} from 'react-icons/md'
 import uniqid from 'uniqid'
-export const ScriptMenuLateral = [
+const ScriptMenuLateral = [
     {
         status: 0,
         type: "menu",
@@ -187,3 +187,5 @@ export const ScriptMenuLateral = [
     },
     
 ] 
+
+export {ScriptMenuLateral}

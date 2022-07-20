@@ -19,7 +19,7 @@ export function DialogSystem(){
                 assine nossa newsletter e fique por detro das novidades
             </Text>
 
-            <Group size='sm' >
+            <Group >
                 <TextInput placeholder="exemplo@lapsoo.com" style={{ flex: 1 }} />
                 <Button onClick={() => setOpened(false)}>Subscribe</Button>
             </Group>

@@ -1,6 +1,6 @@
-import { Dispatch, SetStateAction } from "react"
+import { Dispatch, JSXElementConstructor, ReactElement, ReactFragment, SetStateAction } from "react"
 import { ScriptMenuLateral } from "./script"
-import { Link } from "react-router-dom";
+import { Link, To } from "react-router-dom";
 import { Text, Group, Indicator, Switch, useMantineColorScheme, Button } from "@mantine/core";
 import {ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader, SidebarContent, SidebarFooter} from 'react-pro-sidebar';
 import { Icone } from "@/components/Icone";
@@ -13,30 +13,30 @@ interface Prop {
     handleToggleSidebar: any; 
 }
 
-interface ScriptMenu {
-    status: number;
-    type: string;
-    id: string;
-    route: string;
-    icon: string;
-    subMenu: {
-        type?: string;
-        status: number;
-        id: string;
-        route: string;
-        icon: string;
-        iconAlter: string
-        text: string;
-    }[];
-    text: string;
-    configPage: {
-        label: string;
-        to: string;
-        id: string;
-        config: {
-            id: string; type: string; label: string;
-        }[];
-}}[];    
+// interface ScriptMenu {
+//     status: number;
+//     type: string;
+//     id: string;
+//     route: string;
+//     icon: string;
+//     subMenu?: {
+//         type?: string;
+//         status: number;
+//         id: string;
+//         route: string;
+//         icon: string;
+//         iconAlter?: string
+//         text: string;
+//     }[];
+//     text: string;
+//     configPage?: {
+//         label: string;
+//         to: string;
+//         id: string;
+//         config?: {
+//             id: string; type: string; label: string; 
+//         } | undefined [];
+// }}[];    
 
 
 
@@ -47,8 +47,12 @@ export const MenuLateralLeft=(prop: Prop ) =>{
     const dark = colorScheme === 'dark'
 
 
-    function menu (ScriptMenuLateral: ScriptMenu){    
+    function menu (ScriptMenuLateral: { status: number; type: string; id: string; route: string; icon: string; text: string; subMenu?: undefined; configPage?: undefined; } | { status: number; type: string; id: string; route: string; icon: string; subMenu: {
+        type: string; status: number; id: string; route: string; icon: string; text: string; 
+}[]; text: string; configPage: { label: string; to: string; id: string; config: { id: string; type: string; label: string; }[]; }[]; } | { status?: undefined; type?: undefined; id?: undefined; route?: undefined; icon?: undefined; text?: undefined; subMenu?: undefined; configPage?: undefined; }){    
         const {type, text, subMenu, icon, route} = ScriptMenuLateral
+        const texto = <Text size="md">{text}</Text>
+        
         let returnMenu 
         switch (type) {
             case 'menu':
@@ -69,11 +73,11 @@ export const MenuLateralLeft=(prop: Prop ) =>{
                 returnMenu = 
                     <SubMenu
                     style={{ margin: 0, padding: 0 }}
-                    suffix={<Indicator position="middle-center" radius="sm"  color='red' label='1' size={16} style={{margin: "0 .4rem"}} />}
-                    title={<Text size="md">{text}</Text>}
+                    suffix={<Indicator position="middle-center" radius="sm" color='red' label='1' size={16} style={{ margin: "0 .4rem" }} children={undefined} />}
+                    title={text}
                     icon={<Text size="md">{Icone(icon)}</Text>}
                     >
-                        {subMenu?.map(item => (
+                        {subMenu?.map((item) => (
                             <>
                             
                             {

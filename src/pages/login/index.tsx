@@ -2,58 +2,62 @@ import {useNavigate} from 'react-router-dom'
 import { useContext } from 'react'
 import styles from './Login.module.scss'
 import { UsuarioContext } from '@/common/context/Usuario'
+import { useForm } from '@mantine/hooks'
+import { Box, Button, Center, Checkbox, Group, PasswordInput, TextInput} from '@mantine/core'
+
+
+
 interface Prop {
     setPassword: React.Dispatch<React.SetStateAction<string>>
     setUser: React.Dispatch<React.SetStateAction<string>>
-    user: string
-    password: string
 }
 
 export function Login(){
-    const {user, setUser, password, setPassword} = useContext<Prop>(UsuarioContext)
+    const { setUser, setPassword} = useContext<Prop>(UsuarioContext)
+    
+    const form = useForm({
+        initialValues: {
+            user: '',
+            password: '',
+            keepLoggedIn: false
+        },
+    })
     
     const navigate = useNavigate()
     return( 
-        <section className={styles.login}>
+       <Center style={{height: "100vh"}}>
 
-            <fieldset className={styles.login__fieldset}>
-                <form action="" className={styles.login__fieldset__form} id="formularioCadastro">
-                    <div className={styles.login__fieldset__form__div}> 
-                        <input 
-                            value={user}
-                            onChange={(event)=>setUser(event.target.value)}
-                            id="user" 
-                            type="text" 
-                            className={styles.login__fieldset__form__div__input} 
-                            placeholder=" " />
-                        <label htmlFor="user" className={styles.login__fieldset__form__div__label}> <span> user:</span> </label>
-                    </div>
+        <Box sx={{maxWidth: 600}}  mx='auto' >
+            <form onSubmit={form.onSubmit((values) => {
+                setUser(values.user)
+                setPassword(values.password)
+                
+            } )}>
+                <TextInput
+                    required 
+                    label='username'
+                    placeholder='digite seu username aqui'
+                    {...form.getInputProps('user')}
+                />
+                <PasswordInput 
+                    required
+                    mt="md"
+                    label='password'
+                    description=''
+                    {...form.getInputProps('password')}
+                />
+                <Checkbox 
+                    mt='md'
+                    label='manter-me logado'
+                    {...form.getInputProps('keepLoggedIn', {type: 'checkbox'})}
+                />
 
-
-                    <div className={styles.login__fieldset__form__div}>
-                        <input 
-                            value={password}
-                            onChange={(event)=>setPassword(event.target.value)}
-                            id="password" 
-                            type="password" 
-                            className={styles.login__fieldset__form__div__input} 
-                            placeholder=" " />
-                        <label htmlFor="password" className={styles.login__fieldset__form__div__label}> <span>password: </span> </label>
-                    </div>
-
-
-
-                    <button onClick={(event)=> {
-                        event.preventDefault() 
-                        navigate('dashboard')}} 
-                        className={styles.login__fieldset__form__submit}>log in</button> 
-
-                </form>
-
-            </fieldset>
-
-        </section>
-
+                <Group position='right' mt='md'>
+                    <Button type='submit'>acessar</Button>
+                </Group>
+            </form>
+        </Box>
+       </Center>
         
     )
 }
